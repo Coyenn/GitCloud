@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+    vscode:
+        build:
+            context: "./vscode"
+        volumes:
+            - "~/.editor_config/extensions:/config/extensions"
+            - "~/.editor_config/settings.json:/config/data/User/settings.json"
+            - "${PWD}/src:/config/workspace"
+        environment:
+            - PUID=${EDITOR_UID:-1000}
+            - PGID=${EDITOR_PID:-1000}
+            - TZ=Europe/Berlin
+            - PASSWORD=${EDITOR_PASSWORD:-password}
+            - SUDO_PASSWORD=${EDITOR_PASSWORD:-password}
+        ports:
+            - ${EDITOR_PORT:-8080}:8443
