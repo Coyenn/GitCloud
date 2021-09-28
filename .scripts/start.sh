@@ -1,7 +1,8 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 function gotoScriptDirectory(){
     cd "$(dirname "$0")" || exit
+    cd ../
 }
 
 function ensureConfig() {
