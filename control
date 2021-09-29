@@ -14,8 +14,11 @@ function displayStartMessage() {
 }
 
 function executeCommand() {
-	displayStartMessage
-	bash ./.scripts/"$1".sh
+	if [ -f ./.scripts/"$1".sh ]; then
+		bash ./.scripts/"$1".sh
+	else
+		displayStartMessage
+	fi
 }
 
 executeCommand "$1"
