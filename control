@@ -10,7 +10,7 @@ function displayStartMessage() {
 	echo "   control start            Start the development environment"
 	echo "   control stop             Stop the development environment"
 	echo ""
-	echo "Development Environment v$(cat ./version)"
+	echo "Project Boilerplate v$(cat ./version)"
 }
 
 function executeCommand() {

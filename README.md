@@ -1,4 +1,4 @@
-# Project Management Tool
+# Project Boilerplate
 
 This tool aims to streamline the setup and handling of cloud development environments.
 
