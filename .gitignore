@@ -1,3 +1,5 @@
+Dockerfile.editor.complete
+
 # compiled output
 /dist
 /tmp

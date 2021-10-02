@@ -4,6 +4,7 @@ services:
     vscode:
         build:
             context: "./vscode"
+            dockerfile: Dockerfile.editor.complete
         volumes:
             - "~/.editor_config/extensions:/config/extensions"
             - "~/.editor_config/settings.json:/config/data/User/settings.json"
