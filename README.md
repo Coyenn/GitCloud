@@ -1,7 +1,7 @@
 # Project Boilerplate
 
 <p align="center">
-    <img src="https://ibb.co/98sP8HS" height="60">
+    <img src="https://i.ibb.co/YRpgRBw/cloud.png" height="60">
     <h3 align="center">Gitpod</h3>
   <p align="center">Always ready-to-code.</p>
   <p align="center">Definitely not inspired by GitPod</p>
