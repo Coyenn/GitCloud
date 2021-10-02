@@ -15,6 +15,14 @@ EDITOR_PID=100
 EDITOR_PORT=8070" > ./.env
     echo "Creating src folder"
     mkdir src
+    echo "Removing old git directory"
+    rm -R .git
+    echo "Creating new git project"
+    git init
+    echo "Adding all git files"
+    git add -A
+    echo "Initially committing"
+    git commit -m "Initial boilerplate commit"
 }
 
 gotoScriptDirectory
