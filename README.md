@@ -16,7 +16,7 @@ sudo rm -R .git && git init
 ./control install
 ```
 
-3. Configure the .env file in the project route directory
+3. Configure the .env file in the project root directory
 4. Build the development environment
 
 ```bash
