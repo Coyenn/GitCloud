@@ -4,17 +4,27 @@ This tool aims to streamline the setup and handling of cloud development environ
 
 ## Getting Started
 
-Configure the Project using a .env file. You can use this template:
+1. Delete the old git repository and init a new one
 
-```env
-PROJECT_NAME=ProjectName
-EDITOR_PASSWORD=Password
-EDITOR_UID=1026
-EDITOR_PID=100
-EDITOR_PORT=8070
+```bash
+sudo rm -R .git && git init
 ```
 
-And finally start the project using the control script located in the root directory
+2. Run:
+
+```bash
+./control install
+```
+
+3. Configure the .env file in the project route directory
+4. Build the development environment
+
+```bash
+./control build
+```
+
+5. Finally start the project
+
 ```bash
 ./control start
 ```
