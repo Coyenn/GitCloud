@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Require root privileges
-[ "$UID" -eq 0 ] || exec sudo "$0" "$@"
-
 function displayStartMessage() {
 	echo "Usage: control <command> [options]"
 	echo ""
