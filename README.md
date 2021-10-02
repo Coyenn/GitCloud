@@ -17,6 +17,13 @@ sudo rm -R .git && git init
 ```
 
 3. Configure the .env file in the project root directory
+
+4. (Optional) Add dependencies for the docker image of the developmen environment to the Dockerfile.editor file. The docker image is based off of ubuntu, so packages can be install via apt.
+
+```Dockerfile
+RUN some-command
+```
+
 4. Build the development environment
 
 ```bash
