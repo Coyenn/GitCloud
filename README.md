@@ -37,3 +37,5 @@ RUN some-command
 ```bash
 ./control start
 ```
+
+Copyright (C) Tim Ritter - All Rights Reserved. Unauthorized copying of this source code, via any medium is strictly prohibited Proprietary and confidential. Written by Tim Ritter timrittermail@gmail.com.
