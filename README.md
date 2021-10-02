@@ -1,7 +1,7 @@
 # Project Boilerplate
 
 <img src="https://i.ibb.co/YRpgRBw/cloud.png" height="120">
-GitCloud
+<h3>GitCloud</h3>
 
 GitCloud aims to streamline the setup and handling of cloud development environments. The "control" tool provides an easy way to interact with the development environment. Type `./control` for help.
 
