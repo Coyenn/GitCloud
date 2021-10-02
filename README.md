@@ -1,6 +1,6 @@
 # Project Boilerplate
 
-This tool aims to streamline the setup and handling of cloud development environments.
+This tool aims to streamline the setup and handling of cloud development environments. The "control" tool provides an easy way to interact with the development environment. Type `./control` for help.
 
 ## Getting Started
 
