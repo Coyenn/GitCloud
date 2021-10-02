@@ -1,5 +1,12 @@
 # Project Boilerplate
 
+<p align="center">
+    <img src="https://ibb.co/98sP8HS" height="60">
+    <h3 align="center">Gitpod</h3>
+  <p align="center">Always ready-to-code.</p>
+  <p align="center">Definitely not inspired by GitPod</p>
+</p>
+
 This tool aims to streamline the setup and handling of cloud development environments. The "control" tool provides an easy way to interact with the development environment. Type `./control` for help.
 
 ## Getting Started
