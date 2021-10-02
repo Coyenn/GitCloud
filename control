@@ -9,8 +9,22 @@ function displayStartMessage() {
 	echo "Commands:"
 	echo "   control start            Start the development environment"
 	echo "   control stop             Stop the development environment"
+	echo "   control install          Install necessary components of the development environment"
 	echo ""
 	echo "Project Boilerplate v$(cat ./version)"
+}
+
+function ensureConfig() {
+    DIR="$HOME/.editor_config/"
+    echo "Checking for configuration"
+    if [ -d "$DIR" ]; then
+        echo "No configuration in $HOME. Initiating empty configuration"
+        mkdir ~/.editor_config 
+        mkdir ~/.editor_config/extensions
+        touch ~/.editor_config/settings.json
+    else
+        echo "Config directory exists"
+    fi
 }
 
 function executeCommand() {
@@ -21,4 +35,5 @@ function executeCommand() {
 	fi
 }
 
+ensureConfig
 executeCommand "$1"
