@@ -12,7 +12,7 @@ function installDocker(){
 EDITOR_PASSWORD=Password
 EDITOR_UID=1026
 EDITOR_PID=100
-EDITOR_PORT=8070" > ./.env2
+EDITOR_PORT=8070" > ./.env
 }
 
 gotoScriptDirectory
