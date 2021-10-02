@@ -7,7 +7,7 @@ function gotoScriptDirectory(){
 
 function installDocker(){
     echo "Created a new configuration file in project root directory."
-    touch .env2
+    touch .env
     printf "PROJECT_NAME=ProjectName
 EDITOR_PASSWORD=Password
 EDITOR_UID=1026
