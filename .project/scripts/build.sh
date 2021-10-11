@@ -11,6 +11,7 @@ function build(){
     echo "" > .project/docker/vscode/Dockerfile.editor.complete
     cat .project/docker/vscode/Dockerfile.base > .project/docker/vscode/Dockerfile.editor.complete
     cat .project/config/Dockerfile.editor >> .project/docker/vscode/Dockerfile.editor.complete
+    cp .env .project/docker/.env
     cd .project/docker || exit
     docker-compose build
     cd ../../
