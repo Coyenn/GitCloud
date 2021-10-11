@@ -44,5 +44,15 @@ function installProject(){
     initGitProject
 }
 
+function getStartedMessage() {
+    echo ""
+    echo "Succuessfully installed new Project!"
+    echo "To get Started:"
+    echo "  - Configure the .env file in the root directory"
+    echo "  - Start the development environment using ./control start"
+    echo ""
+}
+
 gotoScriptDirectory && \
-installProject
+installProject && \
+getStartedMessage
