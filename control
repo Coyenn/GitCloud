@@ -14,14 +14,10 @@ function displayStartMessage() {
 
 function ensureConfig() {
     DIR="$HOME/.editor_config/"
-    echo "Checking for configuration"
     if [ -d "$DIR" ]; then
-        echo "No configuration in $HOME. Initiating empty configuration"
-        mkdir ~/.editor_config 
-        mkdir ~/.editor_config/extensions
-        touch ~/.editor_config/settings.json
-    else
-        echo "Config directory exists"
+        mkdir ~/.editor_config &> /dev/null
+        mkdir ~/.editor_config/extensions &> /dev/null
+        touch ~/.editor_config/settings.json &> /dev/null
     fi
 }
 
