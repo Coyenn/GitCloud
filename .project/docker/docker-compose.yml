@@ -1,6 +1,7 @@
 services:
-    ${PROJECT_NAME}_traefik:
+    traefik:
         image: traefik:v2.5
+        container_name: ${PROJECT_NAME}_traefik
         networks:
             default:
                 aliases:
@@ -23,7 +24,8 @@ services:
         depends_on:
             - vscode
 
-    ${PROJECT_NAME}_vscode:
+    vscode:
+        container_name: ${PROJECT_NAME}_vscode
         build:
             context: "./vscode"
             dockerfile: Dockerfile.editor.complete
