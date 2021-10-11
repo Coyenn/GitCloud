@@ -1,6 +1,30 @@
-version: '3'
+version: "3.7"
 
 services:
+    traefik:
+        image: traefik:v2.5
+        networks:
+            default:
+                aliases:
+                    - home.local
+                    - vscode.home.local
+        ports:
+            - "${TRAEFIK_WEB_PORT:-80}:80"
+            - "${TRAEFIK_API_PORT:-8080}:8080"
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
+        command:
+            - "--api.insecure=true"
+            - "--providers.docker=true"
+            - "--providers.docker.exposedbydefault=false"
+            - "--providers.docker.constraints=Label(`app`, `infrastructure`)"
+            - "--global.checknewversion=false"
+            - "--global.sendanonymoususage=false"
+            - "--entrypoints.web.address=:80"
+            - "--accesslog=true"
+        depends_on:
+            - vscode
+
     vscode:
         build:
             context: "./vscode"
@@ -17,3 +41,9 @@ services:
             - SUDO_PASSWORD=${EDITOR_PASSWORD:-password}
         ports:
             - ${EDITOR_PORT:-8080}:8443
+        labels:
+            - "app=infrastructure"
+            - "traefik.enable=true"
+            - "traefik.backend=vscode"
+            - "traefik.http.routers.vscode.rule=Host(`code.home.local`)"
+            - "traefik.priority=10000"
