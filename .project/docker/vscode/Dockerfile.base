@@ -1,4 +1,10 @@
 FROM ghcr.io/linuxserver/code-server
+
+ARG GIT_USER
+ARG GIT_USER_EMAIL
+
 RUN apt-get -y update && apt-get -y upgrade
 RUN apt-get -y install curl wget git zsh && \
     sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+RUN echo "zsh" > ~/.bashrc
+RUN git config --global user.email "$GIT_USER" && git config --global user.name "$GIT_USER_EMAIL"

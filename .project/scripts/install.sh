@@ -12,7 +12,12 @@ function createEnvFile() {
 EDITOR_PASSWORD=Password
 EDITOR_UID=1026
 EDITOR_PID=100
-EDITOR_PORT=8070" > ./.env
+EDITOR_PORT=8070
+TRAEFIK_WEB_PORT=80
+TRAEFIK_API_PORT=8080
+GIT_USER=Test
+GIT_USER_EMAIL=test@test.com
+" > ./.env
 }
 
 function createSourceFolder() {
