@@ -3,12 +3,11 @@
 function displayStartMessage() {
 	echo "Usage: control <command> [options]"
 	echo ""
-echo "   ____ _ _    ____ _                 _ "
-echo "  / ___(_) |_ / ___| | ___  _   _  __| |"
-echo " | |  _| | __| |   | |/ _ \| | | |/ _\` |"
-echo " | |_| | | |_| |___| | (_) | |_| | (_| |"
-echo "  \____|_|\__|\____|_|\___/ \__,_|\__,_|"
-                                        
+	echo "   ____ _ _    ____ _                 _ "
+	echo "  / ___(_) |_ / ___| | ___  _   _  __| |"
+	echo " | |  _| | __| |   | |/ _ \| | | |/ _\` |"
+	echo " | |_| | | |_| |___| | (_) | |_| | (_| |"
+	echo "  \____|_|\__|\____|_|\___/ \__,_|\__,_|"                                        
 	echo ""
 	echo "Commands:"
 	echo "   control start            Start the development environment"
