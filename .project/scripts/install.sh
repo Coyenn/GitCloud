@@ -50,6 +50,7 @@ function getStartedMessage() {
     echo "To get Started:"
     echo "  - Configure the .env file in the root directory"
     echo "  - Edit the development environment's Dockerfile in .project/config/Dockerfile.editor"
+    echo "  - Build the workspace image using ./control build"
     echo "  - Start the development environment using ./control start"
     echo ""
 }

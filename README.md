@@ -6,36 +6,8 @@ GitCloud aims to streamline the setup and handling of cloud development environm
 
 ## Getting Started
 
-1. Delete the old git repository and init a new one
-
-```bash
-sudo rm -R .git && git init
-```
-
-2. Run:
+Install the project and follow the instructions preceeding the installation.
 
 ```bash
 ./control install
 ```
-
-3. Configure the .env file in the project root directory
-
-4. (Optional) Add dependencies for the docker image of the developmen environment to the Dockerfile.editor file. The docker image is based off of ubuntu, so packages can be install via apt.
-
-```Dockerfile
-RUN some-command
-```
-
-4. Build the development environment
-
-```bash
-./control build
-```
-
-5. Finally start the project
-
-```bash
-./control start
-```
-
-Copyright (C) Tim Ritter - All Rights Reserved. Unauthorized copying of this source code, via any medium is strictly prohibited Proprietary and confidential. Written by Tim Ritter timrittermail@gmail.com.
