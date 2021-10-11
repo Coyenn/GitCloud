@@ -46,7 +46,8 @@ function installProject(){
 
 function getStartedMessage() {
     echo ""
-    echo "Succuessfully installed new Project!"
+    echo "Succuessfully installed a new Project!"
+    echo ""
     echo "To get Started:"
     echo "  - Configure the .env file in the root directory"
     echo "  - Edit the development environment's Dockerfile in .project/config/Dockerfile.editor"
