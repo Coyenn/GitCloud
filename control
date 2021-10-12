@@ -30,9 +30,6 @@ function envup() {
     set -a
     source $file
     set +a
-  else
-    echo "No $file file found" 1>&2
-    return 1
   fi
 }
 
