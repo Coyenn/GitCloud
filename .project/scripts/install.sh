@@ -59,6 +59,6 @@ function getStartedMessage() {
 
 gotoScriptDirectory && \
 cat ./.project/config/logo && \
-echo "" && \
+echo "" && echo "" && \
 installProject && \
 getStartedMessage
