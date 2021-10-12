@@ -1,20 +1,31 @@
 #!/usr/bin/env bash
 
-show_spinner()
-{
-  local -r pid="${1}"
-  local -r delay='0.1'
-  local spinstr='\|/-'
-  local temp
-  while ps a | awk '{print $1}' | grep -q "${pid}"; do
-    temp="${spinstr#?}"
-    printf " [%c]  " "${spinstr}"
-    spinstr=${temp}${spinstr%"${temp}"}
-    sleep "${delay}"
-    printf "\b\b\b\b\b\b"
-  done
-  printf "    \b\b\b\b"
+#!/usr/bin/env bash
+
+spinner() {
+    local cl="\r\033[K"
+    local pid=$1
+    local spinnging=true
+    local delay=0.05
+    local spinstr="⠏⠛⠹⠼⠶⠧"
+
+    printf "  "
+
+    while [ "$(ps a | awk '{print $1}' | grep $pid)" ]; do
+        local tmp=${spinstr#?}
+
+        if [ -z "$2" ]; then
+            printf " \b\b\b${tmp:0:1} "
+        else
+            printf "${cl} ${tmp:0:1} ${2}"
+        fi
+
+        local spinstr=$tmp${spinstr%"$tmp"}
+        sleep $delay
+    done
+
+    printf "${cl}"
 }
 
 ("$@") &
-show_spinner "$!"
+spinner "$!"
