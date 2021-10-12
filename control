@@ -23,6 +23,19 @@ function ensureConfig() {
     fi
 }
 
+function envup() {
+  local file=$([ -z "$1" ] && echo ".env" || echo ".env.$1")
+
+  if [ -f "$file" ]; then
+    set -a
+    source $file
+    set +a
+  else
+    echo "No $file file found" 1>&2
+    return 1
+  fi
+}
+
 function executeCommand() {
 	if [ -f ./.project/scripts/"$1".sh ]; then
 		bash .project/internal/spinner.sh ./.project/scripts/"$1".sh
@@ -31,5 +44,6 @@ function executeCommand() {
 	fi
 }
 
-ensureConfig
+ensureConfig && \
+envup && \
 executeCommand "$1"
