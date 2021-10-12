@@ -13,5 +13,15 @@ function startDocker(){
     docker-compose -f .project/docker/docker-compose.yml up -d
 }
 
-gotoScriptDirectory
-startDocker
+function successMessage() {
+    echo "Your development environment is running!"
+    echo "Connect to the vscode instance using"
+    echo ""
+    echo "http://localhost:${EDITOR_PORT}/"
+    echo "http://$(ip route get 1 | awk '{print $NF;exit}'):$EDITOR_PORT/"
+    echo ""
+}
+
+gotoScriptDirectory && \
+startDocker && \
+successMessage
