@@ -2,18 +2,14 @@
 
 function displayStartMessage() {
 	echo "Usage: control <command> [options]"
-	echo ""
-	echo "   ____ _ _    ____ _                 _ "
-	echo "  / ___(_) |_ / ___| | ___  _   _  __| |"
-	echo " | |  _| | __| |   | |/ _ \| | | |/ _\` |"
-	echo " | |_| | | |_| |___| | (_) | |_| | (_| |"
-	echo "  \____|_|\__|\____|_|\___/ \__,_|\__,_|"                                        
+	echo "$(cat ./.project/config/logo)"
 	echo ""
 	echo "Commands:"
 	echo "   control start            Start the development environment"
 	echo "   control stop             Stop the development environment"
 	echo "   control install          Install necessary components of the development environment"
 	echo "   control build            Build the development environment"
+	echo "   control clean            Remove dangling docker images"
 	echo ""
 	echo "GitCloud v$(cat ./.project/version)"
 }
@@ -29,7 +25,7 @@ function ensureConfig() {
 
 function executeCommand() {
 	if [ -f ./.project/scripts/"$1".sh ]; then
-		bash ./.project/scripts/"$1".sh
+		bash .project/internal/spinner.sh ./.project/scripts/"$1".sh
 	else
 		displayStartMessage
 	fi
