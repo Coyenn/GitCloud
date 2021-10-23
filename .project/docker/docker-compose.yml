@@ -1,52 +1,13 @@
 services:
-    traefik:
-        image: traefik:v2.5
-        container_name: ${PROJECT_NAME}_traefik
-        networks:
-            default:
-                aliases:
-                    - home.local
-                    - vscode.home.local
-        ports:
-            - "${TRAEFIK_WEB_PORT:-80}:80"
-            - "${TRAEFIK_API_PORT:-8080}:8080"
-        volumes:
-            - /var/run/docker.sock:/var/run/docker.sock
-        command:
-            - "--api.insecure=true"
-            - "--providers.docker=true"
-            - "--providers.docker.exposedbydefault=false"
-            - "--providers.docker.constraints=Label(`app`, `infrastructure`)"
-            - "--global.checknewversion=false"
-            - "--global.sendanonymoususage=false"
-            - "--entrypoints.web.address=:80"
-            - "--accesslog=true"
-        depends_on:
-            - vscode
-
     vscode:
         container_name: ${PROJECT_NAME}_vscode
         build:
             context: "./vscode"
             dockerfile: Dockerfile.editor.complete
-            args:
-                - GIT_USER=${GIT_USER}
-                - GIT_USER_EMAIL=${GIT_USER_EMAIL}
         volumes:
-            - "~/.editor_config/extensions:/config/extensions"
-            - "~/.editor_config/settings.json:/config/data/User/settings.json"
-            - "${PWD}:/config/workspace"
-        environment:
-            - PUID=${EDITOR_UID:-1000}
-            - PGID=${EDITOR_PID:-1000}
-            - TZ=Europe/Berlin
-            - PASSWORD=${EDITOR_PASSWORD:-password}
-            - SUDO_PASSWORD=${EDITOR_PASSWORD:-password}
+            - "~/.editor_config/extensions:/home/workspace/.openvscode-server/extensions"
+            - "~/.editor_config/settings.json:/home/workspace/.openvscode-server/Machine/settings.json"
+            - "~/.gitconfig:/home/workspace"
+            - "${PWD}:/home/workspace"
         ports:
             - ${EDITOR_PORT:-8080}:8443
-        labels:
-            - "app=infrastructure"
-            - "traefik.enable=true"
-            - "traefik.backend=vscode"
-            - "traefik.http.routers.vscode.rule=Host(`code.home.local`)"
-            - "traefik.priority=10000"
