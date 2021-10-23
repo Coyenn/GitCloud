@@ -11,7 +11,7 @@ function build(){
     echo "" > .project/docker/vscode/Dockerfile.editor.complete
     cat .project/docker/vscode/Dockerfile.base > .project/docker/vscode/Dockerfile.editor.complete
     cat .project/config/Dockerfile.editor >> .project/docker/vscode/Dockerfile.editor.complete
-    echo "USER openvscode-server" >> .project/docker/vscode/Dockerfile.editor.complete
+    printf "\nUSER openvscode-server" >> .project/docker/vscode/Dockerfile.editor.complete
     cp .env .project/docker/.env
     cd .project/docker || exit
     docker-compose build
