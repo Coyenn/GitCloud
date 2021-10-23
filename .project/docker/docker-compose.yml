@@ -7,7 +7,7 @@ services:
         volumes:
             - "~/.editor_config/extensions:/home/workspace/.openvscode-server/extensions"
             - "~/.editor_config/settings.json:/home/workspace/.openvscode-server/Machine/settings.json"
-            - "~/.gitconfig:/home/workspace"
+            - "~/.gitconfig:/home/workspace/.gitconfig"
             - "${PWD}:/home/workspace"
         ports:
             - ${EDITOR_PORT:-8080}:8443
